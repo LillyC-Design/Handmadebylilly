@@ -1,0 +1,103 @@
+# Handmade by Lilly
+
+Website for Handmade by Lilly, hand-crocheted shawls and oversized scarves.
+The live address is set by `siteUrl` in `content/site.json`.
+
+The site is plain static HTML, generated from simple content files by `build.mjs`
+(Node.js, no dependencies). GitHub Actions runs the build and publishes to
+GitHub Pages on every push to `main`, so **editing content only needs a commit**.
+
+## Where things live
+
+| What | File |
+| --- | --- |
+| Name, email, Instagram, Google Analytics ID, dispatch time | `content/site.json` |
+| Products (name, price, description, photo, Stripe link) | `content/products.json` |
+| Stock status: `"available"` or `"sold"` | `content/stock.json` |
+| Journal posts | `content/blog/*.md` |
+| Pattern guides | `content/pattern-guides/*.md` |
+| Stitch library (technical details) | `content/technical-details/*.md` |
+| Events | `content/events.json` |
+| Photos | `static/images/` |
+| Design | `static/css/site.css` |
+
+## Common changes
+
+**Mark a piece sold / available:** change its value in `content/stock.json`.
+The product page swaps the Buy button for an "in the archive" note, and the
+piece moves to the end of the shop. Also switch off the matching Stripe
+Payment Link in Stripe, otherwise the direct link still takes payments.
+
+**Add a product:** add an entry to `content/products.json` (copy an existing
+one: `name`, `subtitle`, `category`, `price`, `cardLine`, `cardFacts`,
+`metaDescription`, `images`, `description`, `details`, `care`, `closing`,
+optional `stripe` and `instagram`), plus a stock line in `content/stock.json`.
+Photos go in `static/images/` named `<name>-<width>.jpg` (e.g.
+`granite-crochet-shawl-flat-lay-1170.jpg` and `...-768.jpg`); the first image
+is the shop card photo. Photos are always shown whole, never cropped. A new
+`category` automatically appears in the shop filter. A product with no
+`stripe` link gets a "Buy" button that opens an email to Lilly instead.
+
+**Draft products:** add `"draft": true` to keep a product in the file but off
+the site (Misty Woodland is waiting on its details). Delete that line to publish.
+
+**Add a journal post:** add `content/blog/<url-slug>.md`:
+
+```markdown
+---
+title: The post title
+description: One or two sentences for Google and the post list (50+ characters, unique).
+date: 2026-10-01
+image: photo-name
+alt: What the photo shows, in plain words
+---
+
+Opening paragraph.
+
+## A subheading
+
+More text. **Bold**, *italic*, [links](https://example.com) and - bullet lists work.
+```
+
+**Add an event:** add to `content/events.json` (past events hide automatically):
+
+```json
+[
+  {
+    "title": "Autumn Makers' Market",
+    "date": "2026-10-18",
+    "time": "10am to 4pm",
+    "location": "Town Hall, High Street, Anytown",
+    "agenda": "Browse the new winter pieces and try them on."
+  }
+]
+```
+
+**Turn on Google Analytics:** put the Measurement ID (`G-XXXXXXXXXX`) in
+`ga4Id` in `content/site.json`. That switches on the cookie consent banner, the
+"Cookie settings" footer link, and the analytics wording in the privacy and
+cookie policies. Analytics never loads before a visitor clicks Accept.
+
+## Preview locally
+
+```bash
+node build.mjs
+node serve.mjs
+```
+
+Then open the address it prints (http://localhost:4173/ plus your `basePath`).
+
+## Rules for this repo
+
+- The repo is **public**. Never commit spreadsheets, costs, margins, supplier
+  details, tokens or passwords. `.gitignore` blocks `.xlsx`, `.csv` and `.env`
+  files as a safety net.
+- Every page needs a unique title and meta description. The build fails if two
+  pages share one, or if a description is under 50 characters.
+- Every image needs descriptive alt text.
+
+## Stock and journal updates
+
+There are no automations: update `content/stock.json` by hand when a piece sells
+(and switch off its Stripe Payment Link), and add journal posts as new files in
+`content/blog/`. See START-HERE.md and CHATGPT-BRIEFING.md in the handover pack.
