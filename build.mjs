@@ -587,9 +587,18 @@ function about() {
     <h1 class="page-head__title" data-reveal>The hands behind <em>the stitches.</em></h1>
     <p class="page-head__lede" data-reveal>Handmade by Lilly is one person, a hook, and a basket of yarn that is always slightly too full.</p>
   </div>
-  <figure class="about-hero__media" data-reveal>
+  <div class="about-hero__art" data-reveal>
+  <figure class="about-hero__media">
     ${img("lilly-about-collage", "Lilly holding her handmade crochet shawls in a cosy craft room, shown in a three-photo collage", { sizes: "(min-width: 900px) 45vw, 100vw", eager: true })}
   </figure>
+    <div class="badge badge--about" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="badge__ring" data-spin>
+        <defs><path id="about-badge-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+        <text textLength="486" lengthAdjust="spacing"><textPath href="#about-badge-circle" textLength="486" lengthAdjust="spacing">one of a kind · made slowly · by hand · </textPath></text>
+      </svg>
+      <svg viewBox="0 0 24 24" class="badge__heart"><path d="${heartPath}"/></svg>
+    </div>
+  </div>
 </section>
 <section class="prose-wide">
   <div class="dropcap" data-reveal>

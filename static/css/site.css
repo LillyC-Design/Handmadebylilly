@@ -459,6 +459,8 @@ body.menu-open .menu-toggle { color: var(--cream); }
 /* ---------- about ---------- */
 
 .about-hero { max-width: var(--max); margin: 0 auto; padding: 32px var(--gutter) clamp(80px, 10vw, 140px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 100px); align-items: end; }
+.about-hero__art { position: relative; min-width: 0; }
+.about-hero__art .badge--about { left: -12px; bottom: -24px; width: clamp(90px, 10vw, 130px); height: clamp(90px, 10vw, 130px); z-index: 1; }
 .about-hero__media { margin: 0; aspect-ratio: auto; border-radius: 4px; overflow: hidden; background: var(--linen); }
 .about-hero__media img { display: block; width: 100%; height: auto; object-fit: contain; }
 .prose-wide { max-width: 860px; margin: 0 auto; padding: 0 var(--gutter) clamp(80px, 10vw, 130px); }
@@ -782,3 +784,7 @@ body.menu-open .menu-toggle { color: var(--cream); }
 /* Show the complete homepage collage without cropping. */
 .hero__arch--collage { aspect-ratio: auto; border-radius: 6px; }
 .hero__arch--collage img { display: block; height: auto; object-fit: contain; transform: none; will-change: auto; }
+
+@media (max-width: 900px) {
+  .about-hero__art { max-width: 480px; }
+}
