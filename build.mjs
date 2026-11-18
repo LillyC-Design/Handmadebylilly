@@ -369,8 +369,8 @@ function home() {
   </div>
   <div class="hero__art">
     <div class="hero__sun" aria-hidden="true" data-parallax="-0.12"></div>
-    <figure class="hero__arch" data-parallax="0.06">
-      ${img("lilly-hero", "A hand-crocheted triangular shawl in plum with bands of coral and saffron, worn over a cream linen dress by a sunny window", { sizes: "(min-width: 900px) 48vw, 100vw", eager: true })}
+    <figure class="hero__arch hero__arch--collage">
+      ${img("crochet-collage", "Collage of hands crocheting plum yarn, colourful crochet squares, a yellow crochet flower and hands forming a heart", { sizes: "(min-width: 900px) 48vw, 100vw", eager: true })}
     </figure>
     <div class="badge" aria-hidden="true">
       <svg viewBox="0 0 200 200" class="badge__ring" data-spin>

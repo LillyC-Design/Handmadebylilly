@@ -778,3 +778,7 @@ body.menu-open .menu-toggle { color: var(--cream); }
 .btn--card { margin-top: 16px; min-height: 46px; padding: 0 30px; font-size: 15px; }
 .product__buy-top { margin: -8px 0 28px; }
 .product__buy-top .btn { min-width: 180px; }
+
+/* Show the complete homepage collage without cropping. */
+.hero__arch--collage { aspect-ratio: auto; border-radius: 6px; }
+.hero__arch--collage img { display: block; height: auto; object-fit: contain; transform: none; will-change: auto; }
