@@ -588,7 +588,7 @@ function about() {
     <p class="page-head__lede" data-reveal>Handmade by Lilly is one person, a hook, and a basket of yarn that is always slightly too full.</p>
   </div>
   <figure class="about-hero__media" data-reveal>
-    ${img("lilly-hero", "Lilly's triangular crochet shawl in plum, coral and saffron, worn by a window in soft daylight", { sizes: "(min-width: 900px) 45vw, 100vw", eager: true })}
+    ${img("lilly-about-collage", "Lilly holding her handmade crochet shawls in a cosy craft room, shown in a three-photo collage", { sizes: "(min-width: 900px) 45vw, 100vw", eager: true })}
   </figure>
 </section>
 <section class="prose-wide">
